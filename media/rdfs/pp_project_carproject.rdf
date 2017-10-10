@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:cycAnnot="http://sw.cyc.com/CycAnnotations_v1#"
+	xmlns:cyc="http://sw.cyc.com/concept/"
+	xmlns:dbpedia="http://dbpedia.org/resource/"
+	xmlns:ctag="http://commontag.org/ns#"
+	xmlns:opencyc="http://sw.opencyc.org/concept/"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:csw="http://semantic-web.at/ontologies/csw.owl#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:freebase="http://rdf.freebase.com/ns/"
+	xmlns:dcterms="http://purl.org/dc/terms/"
+	xmlns:tags="http://www.holygoat.co.uk/owl/redwood/0.1/tags/"
+	xmlns:sesame="http://www.openrdf.org/schema/sesame#"
+	xmlns:fn="http://www.w3.org/2005/xpath-functions#">
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/CarProject/0">
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+	<dcterms:title xml:lang="en">Car Parts</dcterms:title>
+	<rdfs:label xml:lang="en">Car Parts</rdfs:label>
+	<dcterms:creator xml:lang="en">fameri</dcterms:creator>
+	<dcterms:subject xml:lang="en">cars</dcterms:subject>
+	<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-02-05T17:09:04Z</dcterms:created>
+	<skos:hasTopConcept rdf:resource="https://infoneer.poolparty.biz/CarProject/1"/>
+	<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-02-05T17:10:04Z</dcterms:modified>
+	<dcterms:contributor>fameri</dcterms:contributor>
+	<skos:hasTopConcept rdf:resource="https://infoneer.poolparty.biz/CarProject/7"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/CarProject/4">
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+	<dcterms:title xml:lang="en">Passengers</dcterms:title>
+	<rdfs:label xml:lang="en">Passengers</rdfs:label>
+	<dcterms:creator xml:lang="en">fameri</dcterms:creator>
+	<dcterms:subject xml:lang="en">cars</dcterms:subject>
+	<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-02-05T17:10:19Z</dcterms:created>
+	<skos:hasTopConcept rdf:resource="https://infoneer.poolparty.biz/CarProject/5"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/CarProject/9">
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+	<dcterms:title xml:lang="en">Car Types</dcterms:title>
+	<rdfs:label xml:lang="en">Car Types</rdfs:label>
+	<dcterms:creator xml:lang="en">fameri</dcterms:creator>
+	<dcterms:subject xml:lang="en">cars</dcterms:subject>
+	<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-02-05T17:21:31Z</dcterms:created>
+	<skos:hasTopConcept rdf:resource="https://infoneer.poolparty.biz/CarProject/10"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/CarProject/1">
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<skos:prefLabel xml:lang="en">Body</skos:prefLabel>
+	<skos:topConceptOf rdf:resource="https://infoneer.poolparty.biz/CarProject/0"/>
+	<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-02-05T17:09:17Z</dcterms:created>
+	<dcterms:creator>fameri</dcterms:creator>
+	<skos:narrower rdf:resource="https://infoneer.poolparty.biz/CarProject/2"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/CarProject/2">
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<skos:prefLabel xml:lang="en">Body Door</skos:prefLabel>
+	<skos:broader rdf:resource="https://infoneer.poolparty.biz/CarProject/1"/>
+	<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-02-05T17:09:37Z</dcterms:created>
+	<dcterms:creator>fameri</dcterms:creator>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/CarProject/5">
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<skos:prefLabel xml:lang="en">Driver</skos:prefLabel>
+	<skos:topConceptOf rdf:resource="https://infoneer.poolparty.biz/CarProject/4"/>
+	<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-02-05T17:10:30Z</dcterms:created>
+	<dcterms:creator>fameri</dcterms:creator>
+	<skos:narrower rdf:resource="https://infoneer.poolparty.biz/CarProject/6"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/CarProject/6">
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<skos:prefLabel xml:lang="en">Expert Driver</skos:prefLabel>
+	<skos:broader rdf:resource="https://infoneer.poolparty.biz/CarProject/5"/>
+	<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-02-05T17:10:43Z</dcterms:created>
+	<dcterms:creator>fameri</dcterms:creator>
+	<skos:related rdf:resource="https://infoneer.poolparty.biz/CarProject/8"/>
+	<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-02-05T17:11:52Z</dcterms:modified>
+	<dcterms:contributor>fameri</dcterms:contributor>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/CarProject/7">
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<skos:prefLabel xml:lang="en">Tire</skos:prefLabel>
+	<skos:topConceptOf rdf:resource="https://infoneer.poolparty.biz/CarProject/0"/>
+	<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-02-05T17:11:07Z</dcterms:created>
+	<dcterms:creator>fameri</dcterms:creator>
+	<skos:narrower rdf:resource="https://infoneer.poolparty.biz/CarProject/8"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/CarProject/8">
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<skos:prefLabel xml:lang="en">Performance Tire</skos:prefLabel>
+	<skos:broader rdf:resource="https://infoneer.poolparty.biz/CarProject/7"/>
+	<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-02-05T17:11:28Z</dcterms:created>
+	<dcterms:creator>fameri</dcterms:creator>
+	<skos:related rdf:resource="https://infoneer.poolparty.biz/CarProject/6"/>
+	<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-02-05T17:11:52Z</dcterms:modified>
+	<dcterms:contributor>fameri</dcterms:contributor>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/CarProject/10">
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<skos:prefLabel xml:lang="en">Sedan Car </skos:prefLabel>
+	<skos:topConceptOf rdf:resource="https://infoneer.poolparty.biz/CarProject/9"/>
+	<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-02-05T17:21:47Z</dcterms:created>
+	<dcterms:creator>fameri</dcterms:creator>
+	<skos:narrower rdf:resource="https://infoneer.poolparty.biz/CarProject/11"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/CarProject/11">
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<skos:prefLabel xml:lang="en">BMW</skos:prefLabel>
+	<skos:broader rdf:resource="https://infoneer.poolparty.biz/CarProject/10"/>
+	<dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-02-05T17:22:31Z</dcterms:created>
+	<dcterms:creator>fameri</dcterms:creator>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/CarProject/3">
+	<rdfs:label xml:lang="en">Passengers</rdfs:label>
+	<owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+</rdf:Description>
+
+</rdf:RDF>

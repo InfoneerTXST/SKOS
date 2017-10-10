@@ -1,0 +1,76 @@
+{% extends "skosapp/header.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+    <div style="padding:40px;border:1px solid #ccc">
+        <div class="row">
+            <div class="col-md-10">
+                <h4>Concept model results</h4>
+                <p><i>"{{ model_title }}" saved in model database.</i></p>
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <br>
+                    <table class="table" id="myTable">
+                        <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Weight</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                    <button type="button" id="exportBtn" class="btn btn-seconday">Export</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="application/javascript" src="{% static 'skosapp/js/jquery.mark.min.js' %}"></script>
+    <script>
+
+    function getSortedObject(object)
+    {
+        var sortedObject = {};
+        var keys = Object.keys(object);
+        keys.sort(function(a, b){return a.trim().localeCompare(b.trim())});
+        keys.reverse();
+        for (var i = 0; i < keys.length; i++) {
+            var key = keys[i];
+            sortedObject[key] = object[key];
+        }
+        return sortedObject;
+    }
+
+    var jsonConceptModel = getSortedObject({{ json_concept_model|safe }});
+    for(var key in jsonConceptModel)
+    {
+        if(jsonConceptModel.hasOwnProperty(key))
+        {
+            var table = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+            var newRow = table.insertRow(0);
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            cell1.innerHTML = key;
+            cell2.innerHTML = parseFloat(jsonConceptModel[key]).toFixed(2);
+        }
+    }
+
+    </script>
+
+    <script src="{% static 'skosapp/js/jquery.base64.js' %}"></script>
+    <script src="{% static 'skosapp/js/tableExport.js' %}"></script>
+    <script>
+
+    $(document).ready(function(){
+        $("#exportBtn").click(function(){
+            $('#myTable').tableExport({type:'csv',escape:'false'});
+        });
+    });
+
+    </script>
+
+{% endblock %}

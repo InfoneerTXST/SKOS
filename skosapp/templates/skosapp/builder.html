@@ -1,0 +1,335 @@
+{% extends "skosapp/header.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+    <div style="padding:40px;border:1px solid #ccc">
+        <div class="row">
+            <div class="col-md-10">
+                <h4>Create concept model</h4>
+                <form action="#" id="form" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <p></p>
+                        <p>Select thesaurus:</p>
+                        <select class="form-control" name="select_thesaurus" id="select_thesaurus" oninput="loadThesaurus()">
+                            <option disabled selected="selected" value>--</option>
+                            {% for key, value in thesaurus_dict.items %}
+                                <option>{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                        <p style="margin-top:10px"><a href="{% url 'upload_thesaurus' r="builder" %}"><i class="glyphicon glyphicon-open"></i></a>&nbsp;&nbsp;Upload new thesaurus</p>
+                        <p><a href="{% url 'reset_thesaurus' r="builder" %}"><i class="glyphicon glyphicon-remove"></i></a>&nbsp;&nbsp;Delete all thesauruses</p>
+                        <br>
+                        <p>Model title (required):</p>
+                        <input type="text" class="form-control" name="model_title" id="model_title">
+                        <p style="margin-top:10px"><a target="_blank" href="/static/skosapp/img/CMB.png" style="color:#734143"><i class="glyphicon glyphicon-picture"></i></a>&nbsp;&nbsp;View weight diagram</p>
+                        <p class="noselect">
+                            <i class="glyphicon glyphicon-triangle-right" id="weights_tri" style="cursor:pointer;color:#734143" onclick="weights()"></i>
+                            <span style="margin-left:1px">&nbsp;Adjust weights</span>
+                        </p>
+                        <table id="weights" style="display:none;padding-top:3px;padding-bottom:0px">
+                            <tr>
+                                <td>
+                                    <input type="number" name="entry_pref" value="9" min="0" max="99" style="width:55px;border-radius:4px;border:1px solid #ccc;
+                                    padding-left:10px;padding-top:5px;padding-bottom:5px;padding-right:5px" onkeydown="return false">&nbsp;&nbsp;Entry concepts, pref.
+                                    <p></p>
+                                </td>
+                                <td>
+                                    <input type="number" name="entry_alt" value="5" min="0" max="99" style="width:55px;border-radius:4px;border:1px solid #ccc;
+                                    padding-left:10px;padding-top:5px;padding-bottom:5px;padding-right:5px;margin-left:50px" onkeydown="return false">&nbsp;&nbsp;Entry concepts, alt.
+                                    <p></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="number" name="related_pref" value="5" min="0" max="99" style="width:55px;border-radius:4px;border:1px solid #ccc;
+                                    padding-left:10px;padding-top:5px;padding-bottom:5px;padding-right:5px" onkeydown="return false">&nbsp;&nbsp;Related concepts, pref.
+                                    <p></p>
+                                </td>
+                                <td>
+                                    <input type="number" name="related_alt" value="1" min="0" max="99" style="width:55px;border-radius:4px;border:1px solid #ccc;
+                                    padding-left:10px;padding-top:5px;padding-bottom:5px;padding-right:5px;margin-left:50px" onkeydown="return false">&nbsp;&nbsp;Related concepts, alt.
+                                    <p></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="number" name="broader_pref" value="3" min="0" max="99" style="width:55px;border-radius:4px;border:1px solid #ccc;
+                                    padding-left:10px;padding-top:5px;padding-bottom:5px;padding-right:5px" onkeydown="return false">&nbsp;&nbsp;Broader concepts, pref.
+                                    <p></p>
+                                </td>
+                                <td>
+                                    <input type="number" name="broader_alt" value="1" min="0" max="99" style="width:55px;border-radius:4px;border:1px solid #ccc;
+                                    padding-left:10px;padding-top:5px;padding-bottom:5px;padding-right:5px;margin-left:50px" onkeydown="return false">&nbsp;&nbsp;Broader concepts, alt.
+                                    <p></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="number" name="narrower_pref" value="3" min="0" max="99" style="width:55px;border-radius:4px;border:1px solid #ccc;
+                                    padding-left:10px;padding-top:5px;padding-bottom:5px;padding-right:5px" onkeydown="return false">&nbsp;&nbsp;Narrower concepts, pref.
+                                    <p></p>
+                                </td>
+                                <td>
+                                    <input type="number" name="narrower_alt" value="1" min="0" max="99" style="width:55px;border-radius:4px;border:1px solid #ccc;
+                                    padding-left:10px;padding-top:5px;padding-bottom:5px;padding-right:5px;margin-left:50px" onkeydown="return false">&nbsp;&nbsp;Narrower concepts, alt.
+                                    <p></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br><p style="border-bottom:1px solid #ccc;width:100%;position:relative;top:0px;bottom:0px"></p>
+
+                    <div id="node_list" name="node_list">
+                        <div id="node" name="node">
+                            <div class="form-group">
+                            <br>
+                                <p></p>
+                                <p name="select_concept_title" id="select_concept_title">Select concept #1:</p>
+                                <select class="form-control" name="select_concept" id="select_concept" style="">
+                                    <option disabled selected="selected" value>--</option>
+                                </select>
+                            <br>
+                            <table style="margin-top:-10px">
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="show_related" id="show_related" value="true" style="vertical-align:bottom;position:relative;top:-3px;margin-left:2px">&nbsp;&nbsp;Include related concepts
+                                    </td>
+                                    <td style="padding-left:120px">
+                                        <span>Narrowing levels: </span>
+                                    </td>
+                                    <td style="padding-top:5px;padding-left:10px">
+                                        <input type="range" name="narrowing_level" id="narrowing_level" min="0" max="11" value="0" style="width:100px;display:inline" oninput="showNarrowingValue(this.value, this.id)">
+                                    </td>
+                                    <td>
+                                        <span name="narrowing_range" id="narrowing_range" style="display:inline;padding-left:10px">None</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="show_alt" id="show_alt" value="true" style="vertical-align:bottom;position:relative;top:-3px;margin-left:2px">&nbsp;&nbsp;Include alternative labels
+                                    </td>
+                                    <td style="padding-left:120px">
+                                        <span>Broadening levels: </span>
+                                    </td>
+                                    <td style="padding-top:5px;padding-left:10px">
+                                        <input type="range" name="broadening_level" id="broadening_level" min="0" max="11" value="0" style="width:100px;display:inline" oninput="showBroadeningValue(this.value, this.id)">
+                                    </td>
+                                    <td>
+                                        <span name="broadening_range" id="broadening_range" style="display:inline;padding-left:10px">None</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-top:5px">
+                                        <input type="checkbox" name="show_top" id="show_top" value="true" style="vertical-align:bottom;position:relative;top:-3px;margin-left:2px">&nbsp;&nbsp;Include top-level concepts
+                                    </td>
+                                </tr>
+                            </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br id="break" style="display:none">
+                    <p name="remove_concept_button" id="remove_concept_button" style="visibility:hidden;">
+                    <i class="glyphicon glyphicon-minus" name="remove_concept" id="remove_concept" style="cursor:pointer;color:#734143;" onclick="removeConcept()"></i>&nbsp;&nbsp;Remove concept
+                    </p>
+                    <p style="border-bottom:1px solid #ccc;width:100%;position:relative;top:0px;bottom:0px"></p>
+                    <p><i class="glyphicon glyphicon-plus" style="cursor:pointer;color:#734143;" onclick="addConcept()"></i>&nbsp;&nbsp;Add concept</p><br>
+                    <button type="submit" class="btn btn-seconday">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="application/javascript" src="{% static 'skosapp/js/jquery.mark.min.js' %}"></script>
+    <script>
+
+    var id_counter = -1;
+    var infoDict = {};
+    var values = [];
+
+    $(window).bind("pageshow", function() {
+        var form = $('form');
+        form[0].reset();
+    });
+
+    function weights()
+    {
+        var e = document.getElementById("weights");
+        var t = document.getElementById("weights_tri");
+
+        if(e.style.display == "none")
+        {
+            t.className = "glyphicon glyphicon-triangle-bottom";
+            e.style.display = "block";
+        }
+        else
+        {
+            t.className = "glyphicon glyphicon-triangle-right";
+            e.style.display = "none";
+        }
+    }
+
+    function showNarrowingValue(value, caller_id)
+    {
+        var id = caller_id.replace("narrowing_level", "narrowing_range");
+        if(value == 11)
+            document.getElementById(id).innerHTML="All";
+        else if(value == 0)
+            document.getElementById(id).innerHTML="None";
+        else
+            document.getElementById(id).innerHTML=value;
+    }
+
+    function showBroadeningValue(value, caller_id)
+    {
+        var id = caller_id.replace("broadening_level", "broadening_range");
+        if(value == 11)
+            document.getElementById(id).innerHTML="All";
+        else if(value == 0)
+            document.getElementById(id).innerHTML="None";
+        else
+            document.getElementById(id).innerHTML=value;
+    }
+
+    function addConcept()
+    {
+        id_counter++;
+        var new_node = $("#node").clone();
+        new_node.attr("id", "node" + id_counter);
+        var elements = document.getElementById("node").getElementsByTagName('*');
+
+        for(var i = 0; i < elements.length; i++)
+        {
+            var element = elements[i];
+            var label = element.id;
+            if(label != "")
+            {
+                new_node.find("#" + label).attr("name", label + id_counter);
+                new_node.find("#" + label).attr("id", label + id_counter);
+            }
+        }
+
+        $("#node_list").append(new_node);
+        var select_concept_title_number = id_counter + 2;
+        document.getElementById("select_concept_title" + id_counter).innerHTML = "Select concept #" + select_concept_title_number + ":";
+        document.getElementById("select_concept" + id_counter).selectedIndex = 0;
+        document.getElementById("narrowing_range" + id_counter).innerHTML = "None";
+        document.getElementById("narrowing_level" + id_counter).value = 0;
+        document.getElementById("broadening_range" + id_counter).innerHTML = "None";
+        document.getElementById("broadening_level" + id_counter).value = 0;
+        document.getElementById("show_related" + id_counter).checked = false;
+        document.getElementById("show_alt" + id_counter).checked = false;
+        document.getElementById("remove_concept_button").style.visibility = "visible";
+        document.getElementById("break").style.display = "block";
+        document.getElementById("show_top" + id_counter).checked = false;
+    }
+
+    function removeConcept()
+    {
+        var remove_node = document.getElementById("node" + id_counter);
+        while(remove_node.hasChildNodes()) { remove_node.removeChild(remove_node.lastChild); }
+        remove_node.parentNode.removeChild(remove_node);
+        id_counter--;
+        if(id_counter == -1) {
+            document.getElementById("remove_concept_button").style.visibility = "hidden";
+            document.getElementById("break").style.display = "none";
+        }
+    }
+
+    function loadThesaurus()
+    {
+        for(var i = id_counter; i >= 0; i--)
+        {
+            var remove_node = document.getElementById("node" + i);
+            while(remove_node.hasChildNodes()) { remove_node.removeChild(remove_node.lastChild); }
+            remove_node.parentNode.removeChild(remove_node);
+        }
+
+        document.getElementById("select_concept_title").innerHTML = "Select concept #1:";
+        document.getElementById("select_concept").selectedIndex = 0;
+        document.getElementById("narrowing_range").innerHTML = "None";
+        document.getElementById("narrowing_level").value = 0;
+        document.getElementById("broadening_range").innerHTML = "None";
+        document.getElementById("broadening_level").value = 0;
+        document.getElementById("show_related").checked = false;
+        document.getElementById("show_alt").checked = false;
+        document.getElementById("remove_concept_button").style.visibility = "hidden";
+        document.getElementById("break").style.display = "none";
+        document.getElementById("show_top").checked = false;
+
+        id_counter = -1;
+
+        var select_thesaurus = document.getElementById("select_thesaurus");
+        var current_thesaurus = select_thesaurus.options[select_thesaurus.selectedIndex].text;
+        var jsonThesaurusDict = {{ json_thesaurus_dict|safe }};
+        var id;
+
+        for (var key in jsonThesaurusDict) {
+            if (jsonThesaurusDict.hasOwnProperty(key)) {
+                if (jsonThesaurusDict[key] == current_thesaurus)
+                {
+                    id = key;
+                    break;
+                }
+            }
+        }
+
+        var dir = '../media/thesaurus_data/' + id + '.rj';
+        $.getJSON(dir, function(data) {
+            infoDict = data;
+            values.splice(0, values.length);
+
+            for(var key in infoDict)
+            {
+                if (infoDict.hasOwnProperty(key)) {
+                    if (JSON.stringify(infoDict[key]).includes('http://www.w3.org/2004/02/skos/core#prefLabel')) {
+                        values.push(infoDict[key]['http://www.w3.org/2004/02/skos/core#prefLabel'][0]['value'].trim());
+                    }
+                }
+            }
+
+            values.sort(function(a, b){return a.trim().localeCompare(b.trim())});
+            updateConceptList();
+        });
+    }
+
+    function updateConceptList()
+    {
+        var update_counter = -1;
+
+        while(update_counter <= id_counter)
+        {
+            var select_concept;
+
+            if (update_counter == -1)
+                select_concept = document.getElementById("select_concept");
+            else
+                select_concept = document.getElementById("select_concept" + update_counter);
+
+            $("#" + select_concept.id).empty();
+
+            if (select_concept.length == 0) {
+                opt = document.createElement("option");
+                opt.textContent = "--";
+                opt.disabled = true;
+                opt.selected = true;
+                select_concept.appendChild(opt);
+
+                for (var i = 0; i < values.length; i++) {
+                    label = values[i];
+                    opt = document.createElement("option");
+                    opt.textContent = label;
+                    select_concept.appendChild(opt);
+                }
+            }
+
+            update_counter++;
+        }
+    }
+
+    </script>
+
+{% endblock %}

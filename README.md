@@ -1,0 +1,1 @@
+Infoneer Manufacturing Django App

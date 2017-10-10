@@ -1,0 +1,346 @@
+{% extends "skosapp/header.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block content %}
+    <div style="padding:40px;border:1px solid #ccc">
+    <link rel="stylesheet" type="text/css" href="{% static 'skosapp/css/highlight-style.css' %}">
+        <div class="row">
+            <div class="col-md-10">
+                <h4>Analysis results</h4>
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <pre id="result_p" style="max-height:550px;white-space:pre-wrap"><span id="result_text">{{ text }}</span></pre>
+                    </div>
+                </form>
+                <p style="margin-top:20px"></p>
+                <button type="button" id="exportBtn2" class="btn btn-seconday">Export Text</button>
+                <span id="word_count">&nbsp;&nbsp;&nbsp;Word count: </span>
+                <p style="margin-top:20px"></p>
+                <p><br>Sort table:</p>
+                <tr>
+                    <td>
+                        <label class="radio-inline"><input type="radio" name="sort_table" id="sort_table" value="alphabetical" checked onclick="sortAlphabetical()">Alphabetical</label>
+                    </td>
+                    <td>
+                        <label class="radio-inline"><input type="radio" name="sort_table" id="sort_table" value="occurrences" onclick="sortOccurrences()">Occurrences</label>
+                    </td>
+                </tr>
+                <p></p>
+                <table class="table" id="myTable">
+                    <thead>
+                    <tr>
+                        <th id="head0">Concept (preferred label)</th>
+                        <th id="head1">Occurrences</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody1">
+
+                    </tbody>
+                </table>
+                <table class="table" id="myTable2" style="display:none">
+                    <thead>
+                    <tr>
+                        <th id="head2">Concept (preferred label)</th>
+                        <th id="head3">Occurrences</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody2">
+
+                    </tbody>
+                </table>
+                <p>Export type:</p>
+                <tr>
+                    <td>
+                        <label class="radio-inline"><input type="radio" name="export_cols" id="export_cols" value="2-column" checked>2-column</label>
+                    </td>
+                    <td>
+                        <label class="radio-inline"><input type="radio" name="export_cols" id="export_cols" value="4-column">4-column</label>
+                    </td>
+                </tr>
+                <br><p style="margin-top:20px"></p>
+                <button type="button" id="exportBtn" class="btn btn-seconday">Export Table</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="application/javascript" src="{% static 'skosapp/js/jquery.mark.min.js' %}"></script>
+    <script>
+
+    function highlight(term){
+        $(document).ready(function () {
+            $('#result_p').mark(term, {
+                "accuracy": {"value": "exactly", "limiters": ["s", ",", ".", "?", "!", " ", "es"]},
+                "className":"mark",
+                "separateWordSearch":false,
+                "caseSensitive":false,
+                "synonyms": {"and":"&"}
+            });
+        });
+    }
+
+    function highlight2(term){
+        $(document).ready(function () {
+            $('#result_p').mark(term, {
+                "accuracy": {"value": "exactly", "limiters": ["s", ",", ".", "?", "!", " ", "es"]},
+                "className":"mark2",
+                "id":"mark2",
+                "separateWordSearch":false,
+                "caseSensitive":false,
+                "synonyms": {"and":"&"}
+            });
+        });
+    }
+
+    var jsonObj = {{ json_myDict|safe }};
+
+    var word_count = {{ word_count|safe }};
+    document.getElementById("word_count").innerHTML += word_count;
+
+    for (var key in jsonObj) {
+        if (jsonObj.hasOwnProperty(key)) {
+            var keyt = key.trim();
+            if (keyt.substring(keyt.length - 1, keyt.length) === "s") {
+                highlight(keyt.substring(0, keyt.length - 1));
+            }
+            if (keyt.substring(keyt.length - 2, keyt.length) === "es") {
+                highlight(keyt.substring(0, keyt.length - 2));
+            }
+
+            highlight(keyt);
+
+            if (jsonObj[key].length != 0) {
+                highlight2(jsonObj[key]);
+            }
+        }
+    }
+
+    </script>
+
+    <script type="application/javascript">
+
+        var alphabetical = true;
+
+        RegExp.escape= function(s) {
+            return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        };
+
+        function countOccurrences(from_this_text, string_to_search) // from_this_text -> user input; string_to_search -> concept
+        {
+            from_this_text = from_this_text.replace(/&/g, 'and').trim();
+            string_to_search = string_to_search.replace(/&/g, 'and').trim();
+
+            var result = from_this_text.match(new RegExp('[\\s.?,\'\"!]' + string_to_search + '(?=\\s|\\.|\\?|\\!|\\,|\\-|\'|\"|s\\s|s\\.|s\\?|s\\!|s\\,|s\\-|s\'|s\"|es\\s|es\\.|es\\?|es\\!|es\\,|es\\-|es\'|es\")', "ig"));
+            var result2 = null;
+            var result3 = null;
+
+            if(string_to_search.substring(string_to_search.length - 1, string_to_search.length) === "s")
+            {
+                var string_to_search2 = string_to_search.substring(0, string_to_search.length - 1);
+                result2 = from_this_text.match(new RegExp('[\\s.?,\'\"!]' + string_to_search2 + '(?=\\s|\\.|\\?|\\!|\\,|\\-|\'|\"|s\\s|s\\.|s\\?|s\\!|s\\,|s\\-|s\'|s\"|es\\s|es\\.|es\\?|es\\!|es\\,|es\\-|es\'|es\")', "ig"));
+            }
+
+            if(string_to_search.substring(string_to_search.length - 2, string_to_search.length) === "es")
+            {
+                var string_to_search3 = string_to_search.substring(0, string_to_search.length - 2);
+                result3 = from_this_text.match(new RegExp('[\\s.?,\'\"!]' + string_to_search3 + '(?=\\s|\\.|\\?|\\!|\\,|\\-|\'|\"|s\\s|s\\.|s\\?|s\\!|s\\,|s\\-|s\'|s\"|es\\s|es\\.|es\\?|es\\!|es\\,|es\\-|es\'|es\")', "ig"));
+            }
+
+            var final_result = 0;
+            if(result !== null) final_result = result.length;
+            if(result2 !== null) final_result = result2.length;
+            if(result3 !== null) final_result = result3.length;
+            return final_result;
+        }
+
+        function getSortedObject(object)
+        {
+            var sortedObject = {};
+            var keys = Object.keys(object);
+            keys.sort(function(a, b){return a.trim().localeCompare(b.trim())});
+            keys.reverse();
+            for (var i = 0; i < keys.length; i++) {
+                var key = keys[i];
+                sortedObject[key] = object[key];
+            }
+            return sortedObject;
+        }
+
+        function sortAlphabetical()
+        {
+            if(alphabetical)
+                return;
+            alphabetical = true;
+            sortTable();
+        }
+
+        function sortOccurrences()
+        {
+            if(!alphabetical)
+                return;
+            alphabetical = false;
+            sortTable();
+        }
+
+        var st = {{ json_raw_text|safe }};
+        drawTable(st, "myTable");
+
+        function drawTable(stringText, tableID)
+        {
+            var new_tbody = document.createElement('tbody');
+            var old_tbody = document.getElementById(tableID).getElementsByTagName('tbody')[0];
+            old_tbody.parentNode.replaceChild(new_tbody, old_tbody);
+
+            var jsonZeros = {{ json_show_zeros|safe }};
+            var jsonObj = getSortedObject({{ json_myDict|safe }});
+            var amount_of_occurrences;
+            for(var key in jsonObj)
+            {
+                amount_of_occurrences = 0;
+                if(jsonObj.hasOwnProperty(key)) {
+                    if(jsonObj[key].length == 0)
+                    {
+                        amount_of_occurrences = countOccurrences(stringText, key);
+                        if(amount_of_occurrences != 0 || jsonZeros == "true")
+                        {
+                            var table = document.getElementById(tableID).getElementsByTagName('tbody')[0];
+                            var newRow = table.insertRow(0);
+                            var cell1 = newRow.insertCell(0);
+                            var cell2 = newRow.insertCell(1);
+                            cell1.innerHTML = key;
+                            cell2.innerHTML = amount_of_occurrences;
+                        }
+                    }
+                    else
+                    {
+                        amount_of_occurrences = countOccurrences(stringText, key);
+                        for(var i = 0; i < jsonObj[key].length; i++)
+                        {
+                            amount_of_occurrences = amount_of_occurrences + countOccurrences(stringText, jsonObj[key][i]);
+                        }
+
+                        if(amount_of_occurrences != 0 || jsonZeros == "true")
+                        {
+                            var table = document.getElementById(tableID).getElementsByTagName('tbody')[0];
+                            var newRow = table.insertRow(0);
+                            var cell1 = newRow.insertCell(0);
+                            var cell2 = newRow.insertCell(1);
+                            cell1.innerHTML = key;
+                            cell2.innerHTML = amount_of_occurrences;
+                        }
+                    }
+                }
+            }
+        }
+
+        function sortTable()
+        {
+            var col = 0;
+            if(!alphabetical)
+                col = 1;
+            var body = document.getElementById("myTable").getElementsByTagName('tbody')[0];
+            var store = [];
+
+            for(var a = 0; a < body.rows.length; a++)
+            {
+                var row = body.rows[a];
+                var value = row.cells[col].textContent || row.cells[col].innerText;
+                if(!isNaN(value))
+                    value = parseFloat(value);
+                store.push([value, row]);
+            }
+
+            if(alphabetical) {
+                store.sort(function(x,y) {
+                    return x[0].trim().localeCompare(y[0].trim());
+                });
+            }
+            else {
+                store.sort(function(x,y) {
+                    return x[0] > y[0] ? 1 : x[0] < y[0] ? -1 : 0;
+                });
+                store.reverse();
+            }
+
+            for(var b = 0; b < store.length; b++){
+                body.appendChild(store[b][1]);
+            }
+
+            store = null;
+        }
+
+    </script>
+
+    <script src="{% static 'skosapp/js/jquery.base64.js' %}"></script>
+    <script src="{% static 'skosapp/js/tableExport.js' %}"></script>
+    <script>
+
+    $(document).ready(function() {
+        $("#exportBtn").click(function() {
+            var separate = {{ separate|safe }};
+            var table = document.getElementById("myTable");
+            var text = "";
+            var rows_dict = {{ rows_dict|safe }};
+            var row_count = 1;
+            if(separate) {
+                row_count = Object.keys(rows_dict).length;
+                table = document.getElementById("myTable2");
+            }
+
+            for(var r = 1; r <= row_count; r++) {
+                if(separate)
+                    drawTable(rows_dict[r], "myTable2");
+                if (document.querySelector('input[name = "export_cols"]:checked').value == "2-column") {
+                    for (var i = 0, row; row = table.rows[i]; i++) {
+                        if (i != 0)
+                            text += "\n";
+                        for (var j = 0, col; col = row.cells[j]; j++) {
+                            if (j != 0)
+                                text += ",";
+                            text += col.innerHTML.trim().split("\n").join(" ").split("&nbsp;").join("").split("\t").join("");
+                        }
+                    }
+                }
+                else if (document.querySelector('input[name = "export_cols"]:checked').value == "4-column") {
+                    var top_dict = {{ top_dict|safe }};
+                    var schema_dict = {{ schema_dict|safe }};
+                    for (var i = 0; i < table.rows.length; i++) {
+                        if (i != 0)
+                            text += "\n" + schema_dict[table.rows[i].cells[0].innerHTML] + "," + top_dict[table.rows[i].cells[0].innerHTML] + ",";
+                        else
+                            text += "Concept Schema,Top Concept,";
+                        text += table.rows[i].cells[0].innerHTML.trim().split("\n").join(" ").split("&nbsp;").join("").split("\t").join("") + "," + table.rows[i].cells[1].innerHTML.trim().split("\n").join(" ").split("&nbsp;").join("").split("\t").join("");
+                    }
+                }
+
+                if(r != row_count) {
+                    text += "\n\n\n\n";
+                }
+            }
+
+            var link = document.createElement('a');
+            var type = 'application/csv';
+            link.setAttribute('download', 'ee_table.csv');
+            link.setAttribute('href', 'data:' + type + ';charset=utf-8,' + encodeURIComponent(text));
+            link.click();
+        });
+    });
+
+    var etext = {{ json_text|safe }};
+
+    $(document).ready(function() {
+        $("#exportBtn2").click(function() {
+            var export_text = etext.replace(/([^\r])\n/g, "$1\r\n");
+            var link = document.createElement('a');
+            var type = 'text/plain';
+            link.setAttribute('download', 'ee_text');
+            link.setAttribute('href', 'data:' + type + ';charset=utf-8,' + encodeURIComponent(export_text));
+            link.click();
+        });
+    });
+
+    </script>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "skosapp/header.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+    <div style="padding:40px;border:1px solid #ccc">
+        <div class="row">
+            <div class="col-md-10">
+                <h4>Upload text</h4>
+                <form action="#" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <tr>
+                            <td>
+                                <label class="radio-inline"><input type="radio" name="opt_text" id="opt_text" value="manual" checked>Paste text</label>
+                            </td>
+                            <td>
+                                <label class="radio-inline"><input type="radio" name="opt_text" id="opt_text" value="url">URL (case sensitive)</label>
+                            </td>
+                            <td>
+                                <label class="radio-inline"><input type="radio" name="opt_text" id="opt_text" value="csv">Upload CSV file</label>
+                            </td>
+                        </tr>
+                        <p></p>
+                        <textarea class="form-control" name="text_area" id="TextArea" rows="10" style="resize:none"></textarea>
+                        <p style="padding-top:5px"></p>
+                        <div id="upload_space">{{ form|crispy }}</div>
+                        <p></p><p for="ChooseThesaurus">Select thesaurus:</p>
+                        <select class="form-control" name="select_thesaurus">
+                            <option disabled selected value>--</option>
+                            {% for key, value in thesaurus_dict.items %}
+                                <option>{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <p><a href="{% url 'upload_thesaurus' r="tagging" %}"><i class="glyphicon glyphicon-open"></i></a>&nbsp;&nbsp;Upload new thesaurus</p>
+                    <p><a href="{% url 'reset_thesaurus' r="tagging" %}"><i class="glyphicon glyphicon-remove"></i></a>&nbsp;&nbsp;Delete all thesauruses</p>
+                    <input type="checkbox" name="show_zeros" value="true" style="vertical-align:bottom;position:relative;top:-3px;margin-left:2px">&nbsp;&nbsp;Include zero-occurrence concepts<br>
+                    <p style="padding-top:11px"><input type="checkbox" name="show_top" value="true" style="vertical-align:bottom;position:relative;top:-3px;margin-left:2px">&nbsp;&nbsp;Include top-level concepts</p>
+                    <p style="padding-top:1px"><input type="checkbox" name="separate_rows" value="true" style="vertical-align:bottom;position:relative;top:-3px;margin-left:2px">&nbsp;&nbsp;Analyze CSV file rows separately</p>
+                    <p style="padding-top:1px"><input type="checkbox" name="show_preview" value="true" checked style="vertical-align:bottom;position:relative;top:-3px;margin-left:2px">&nbsp;&nbsp;Show URL preview page</p>
+                    <table style="margin-top:-5px">
+                        <tr>
+                            <td style="padding-top:5px">
+                                <span style="display:inline">URL depth: </span>
+                            </td>
+                            <td style="padding-top:10px;padding-left:10px">
+                                <input type="range" name="depth_level" id="depth_level" min="0" max="3" value="0" style="width:100px;display:inline" oninput="showDepthValue(this.value, this.id)">
+                            </td>
+                            <td style="padding-top:5px">
+                                <div name="depth_range" id="depth_range" style="display:inline;margin-left:10px">0</div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <br>
+                    <button type="submit" class="btn btn-seconday" name="tagging_submit">Analyze</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="application/javascript" src="{% static 'skosapp/js/jquery.mark.min.js' %}"></script>
+    <script>
+
+    $(window).bind("pageshow", function() {
+        var form = $('form');
+        form[0].reset();
+    });
+
+    function showDepthValue(value, caller_id)
+    {
+        var id = caller_id.replace("depth_level", "depth_range");
+        document.getElementById(id).innerHTML=value;
+    }
+
+    </script>
+
+{% endblock %}

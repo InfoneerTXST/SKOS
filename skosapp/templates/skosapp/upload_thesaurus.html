@@ -1,0 +1,25 @@
+{% extends "skosapp/header.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div style="padding:40px;border:1px solid #ccc">
+        <div class="row">
+            <div class="col-md-10">
+                <h4>Upload .RJ file</h4>
+                <form action="#" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <p><i>Note: If a dictionary with the same .rj already exists, it will be overridden.</i></p>
+                    <br>
+                    <button type="submit" class="btn btn-seconday">Upload</button>
+                </form>
+                <br>
+{#        {% for r in rdf %}#}
+{#            {{forloop.counter}}.<a href="{{ r.rdf_file.url }}">{{ r.rdf_file.name }}</a>#}
+{#            ({{r.upload_date}})<hr />#}
+{#        {% endfor %}#}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,184 @@
+{% extends "skosapp/header.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block content %}
+    <div style="padding:40px;border:1px solid #ccc">
+    <link rel="stylesheet" type="text/css" href="{% static 'skosapp/css/highlight-style.css' %}">
+        <div class="row">
+            <div class="col-md-10">
+                <h4>Scoring results</h4>
+                <form action="#" method="post">
+                    {% csrf_token %}
+                </form>
+                <p style="margin-top:20px"></p>
+                <button type="button" id="exportBtn2" class="btn btn-seconday">Export Text</button>
+                <span id="word_count">&nbsp;&nbsp;&nbsp;Word count: </span>
+                <p style="margin-top:20px"></p>
+                <p><br>Sort table:</p>
+                <tr>
+                    <td>
+                        <label class="radio-inline"><input type="radio" name="sort_table" id="sort_table" value="alphabetical" checked onclick="sortAlphabetical()">Alphabetical</label>
+                    </td>
+                    <td>
+                        <label class="radio-inline"><input type="radio" name="sort_table" id="sort_table" value="ratio" onclick="sortRatio()">Score</label>
+                    </td>
+                </tr>
+                <p></p>
+                <table class="table" id="myTable">
+                    <thead>
+                    <tr>
+                        <th id="head0">Concept model</th>
+                        <th id="head1">Score</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody1">
+
+                    </tbody>
+                </table>
+                <button type="button" id="exportBtn" class="btn btn-seconday">Export Table</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="application/javascript" src="{% static 'skosapp/js/jquery.mark.min.js' %}"></script>
+    <script type="application/javascript" src="{% static 'skosapp/js/d3.min.js' %}"></script>
+    <script type="application/javascript">
+
+        var word_count = {{ word_count|safe }};
+        document.getElementById("word_count").innerHTML += word_count;
+
+        var alphabetical = true;
+
+        drawTable();
+        drawGraph();
+
+        function sortAlphabetical()
+        {
+            if(alphabetical)
+                return;
+            alphabetical = true;
+            sortTable();
+        }
+
+        function sortRatio()
+        {
+            if(!alphabetical)
+                return;
+            alphabetical = false;
+            sortTable();
+        }
+
+        function drawTable()
+        {
+            var ratio_dict = {{ ratio_dict|safe }};
+            for(var model in ratio_dict)
+            {
+                if(ratio_dict.hasOwnProperty(model)) {
+                    var table = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+                    var newRow = table.insertRow(0);
+                    var cell1 = newRow.insertCell(0);
+                    var cell2 = newRow.insertCell(1);
+                    cell1.innerHTML = model;
+                    cell2.innerHTML = ratio_dict[model].toFixed(3);
+                }
+            }
+            sortTable();
+        }
+
+        function sortTable()
+        {
+            var col = 0;
+            if(!alphabetical)
+                col = 1;
+            var body = document.getElementById("tbody1");
+            var store = [];
+
+            for(var a = 0; a < body.rows.length; a++)
+            {
+                var row = body.rows[a];
+                var value = row.cells[col].textContent || row.cells[col].innerText;
+                if(!isNaN(value))
+                    value = parseFloat(value);
+                store.push([value, row]);
+            }
+
+            if(alphabetical) {
+                store.sort(function(x,y) {
+                    return x[0].trim().localeCompare(y[0].trim());
+                });
+            }
+            else {
+                store.sort(function(x,y) {
+                    return x[0] > y[0] ? 1 : x[0] < y[0] ? -1 : 0;
+                });
+                store.reverse();
+            }
+
+            for(var b = 0; b < store.length; b++){
+                body.appendChild(store[b][1]);
+            }
+
+            store = null;
+        }
+
+    </script>
+
+    <style>
+
+	.axis {
+	  font: 10px sans-serif;
+	}
+
+	.axis path,
+	.axis line {
+	  fill: none;
+	  stroke: #000;
+	  shape-rendering: crispEdges;
+	}
+
+	</style>
+
+    <script src="{% static 'skosapp/js/jquery.base64.js' %}"></script>
+    <script src="{% static 'skosapp/js/tableExport.js' %}"></script>
+    <script>
+
+    $(document).ready(function(){
+        $("#exportBtn").click(function(){
+            var table = document.getElementById("myTable");
+            var text = "";
+            for(var i = 0, row; row = table.rows[i]; i++) {
+                if(i != 0)
+                    text += "\n";
+                for(var j = 0, col; col = row.cells[j]; j++) {
+                    if(j != 0)
+                        text += ",";
+                    text += col.innerHTML;
+                }
+            }
+
+            var link = document.createElement('a');
+            var type = 'application/csv';
+            link.setAttribute('download', 'cs_table.csv');
+            link.setAttribute('href', 'data:' + type + ';charset=utf-8,' + encodeURIComponent(text));
+            link.click();
+        });
+    });
+
+    var etext = {{ json_text|safe }}
+
+    $(document).ready(function(){
+        $("#exportBtn2").click(function() {
+            var export_text = etext.replace(/([^\r])\n/g, "$1\r\n");
+            var link = document.createElement('a');
+            var type = 'text/plain';
+            link.setAttribute('download', 'cs_text');
+            link.setAttribute('href', 'data:' + type + ';charset=utf-8,' + encodeURIComponent(export_text));
+            link.click();
+        });
+    });
+
+    </script>
+
+{% endblock %}

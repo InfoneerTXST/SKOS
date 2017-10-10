@@ -1,0 +1,143 @@
+{% extends "skosapp/header.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+    <div style="padding:40px;border:1px solid #ccc">
+        <div class="row">
+            <div class="col-md-10">
+                <h4>Upload text</h4>
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <tr>
+                            <td>
+                                <label class="radio-inline"><input type="radio" name="opt_text" id="opt_text" value="manual" checked>Manual</label>
+                            </td>
+                            <td>
+                                <label class="radio-inline"><input type="radio" name="opt_text" id="opt_text" value="url">URL <i style="padding-left:5px">(case sensitive)</i></label>
+                            </td>
+                        </tr>
+                        <p></p>
+                        <textarea class="form-control" name="text_area" id="TextArea" rows="10" style="resize:none"></textarea>
+                        <p></p>
+                    </div>
+                    <p style="padding-top:1px"><input type="checkbox" name="show_preview" value="true" checked style="vertical-align:bottom;position:relative;top:-3px;margin-left:2px">&nbsp;&nbsp;Show URL preview page</p>
+                    <table style="margin-top:-5px">
+                        <tr>
+                            <td style="padding-top:5px">
+                                <span style="display:inline">URL depth: </span>
+                            </td>
+                            <td style="padding-top:10px;padding-left:10px">
+                                <input type="range" name="depth_level" id="depth_level" min="0" max="3" value="0" style="width:100px;display:inline" oninput="showDepthValue(this.value, this.id)">
+                            </td>
+                            <td style="padding-top:5px">
+                                <div name="depth_range" id="depth_range" style="display:inline;margin-left:10px">0</div>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <p style="border-bottom:1px solid #ccc;width:100%;position:relative;top:0px;bottom:0px"></p>
+                    <p style="padding-top:10px">Select concept models:</p>
+                    <table style="width:70%">
+                        <tr>
+                            <td style="width:40%;padding-right:10px">
+                                <p><i>Database models</i></p>
+                            </td>
+                            <td style="width:4%;padding-right:5px"></td>
+                            <td style="width:4%;padding-left:5px"></td>
+                            <td style="width:40%;padding-left:10px">
+                                <p><i>Selected models</i></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:40%;padding-right:10px">
+                                <select name="model_list" id="model_list" size="8" style="width:100%">
+                                    {% for key, value in model_dict.items %}
+                                        <option>{{ key }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                            <td style="width:4%;padding-right:5px">
+                                <button type="button" name="remove_button" id="remove_button" style="width:100%" onclick="removeModel()"><<</button>
+                            </td>
+                            <td style="width:4%;padding-left:5px">
+                                <button type="button" name="add_button" id="add_button" style="width:100%" onclick="addModel()">>></button>
+                            </td>
+                            <td style="width:40%;padding-left:10px">
+                                <select name="model_selected" id="model_selected" size="8" style="width:100%;overflow-x:auto">
+
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+
+                    <div style="display:none">
+                        <select multiple name="models" id="models">
+
+                        </select>
+                    </div>
+
+                    <p></p>
+                    <button type="submit" class="btn btn-seconday" name="scoring_submit" onclick="secretParameters()">Score</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="application/javascript" src="{% static 'skosapp/js/jquery.mark.min.js' %}"></script>
+    <script>
+
+    var model_list = document.getElementById("model_list");
+    var model_selected = document.getElementById("model_selected");
+
+    $(window).bind("pageshow", function() {
+        var form = $('form');
+        form[0].reset();
+    });
+
+    var j_model_list = $('#model_list option');
+    j_model_list.sort(function(a, b) { return a.text.trim().localeCompare(b.text.trim()); });
+    $('#model_list').html(j_model_list);
+
+    function showDepthValue(value, caller_id)
+    {
+        var id = caller_id.replace("depth_level", "depth_range");
+        document.getElementById(id).innerHTML=value;
+    }
+
+    function removeModel()
+    {
+        model_selected.remove(model_selected.selectedIndex);
+    }
+
+    function addModel()
+    {
+        var exists = false;
+        for(var i = 0; i < model_selected.length; i++) {
+            if(model_selected.options[i].text == model_list.options[model_list.selectedIndex].text)
+                exists = true;
+        }
+        if(!exists) {
+            var option = document.createElement("option");
+            option.text = model_list.options[model_list.selectedIndex].text;
+            model_selected.appendChild(option);
+        }
+    }
+
+    function secretParameters()
+    {
+        var models = document.getElementById("models");
+        for(var i = 0; i < model_selected.length; i++) {
+            var option = document.createElement("option");
+            option.text = model_selected.options[i].text;
+            option.selected = true;
+            models.appendChild(option);
+        }
+    }
+
+    </script>
+
+{% endblock %}

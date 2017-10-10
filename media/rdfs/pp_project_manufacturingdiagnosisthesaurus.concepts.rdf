@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+<rdf:Description rdf:about="http://schema.semantic-web.at/ppt/3.2/quality/scenario/dialog.qualitysettings.scenario.default">
+	<activeScenario xmlns="http://schema.semantic-web.at/ppt/3.2/quality/" rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</activeScenario>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/0">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T21:36:12Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<description xmlns="http://purl.org/dc/terms/" xml:lang="en">This thesaurus contains concepts related to manufacturing diagnostics. The particular focus is on collecting the terminology for describing failure modes and their cause, effects, and possible treatments.   </description>
+	<title xmlns="http://purl.org/dc/terms/" xml:lang="en">Maintenance Diagnosis</title>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#" xml:lang="en">Maintenance Diagnostics </label>
+	<hasTopConcept xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<hasTopConcept xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/3"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/1">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T21:36:31Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<description xmlns="http://purl.org/dc/terms/" xml:lang="en">This thesaurus contains concepts related to manufacturing diagnostics. The particular focus is on collecting the terminology for describing failure modes and their cause, effects, and possible treatments.   </description>
+	<title xmlns="http://purl.org/dc/terms/" xml:lang="en">Quality Diagnosis</title>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#" xml:lang="en">Quality Diagnostics</label>
+	<hasTopConcept xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/4"/>
+	<hasTopConcept xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/5"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/10">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T21:46:20Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-25T00:13:54Z</modified>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/8"/>
+	<hiddenLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Colant leak</hiddenLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Coolant Leak</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/11">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T21:47:42Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Air Escape</altLabel>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Ariline Leak</altLabel>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/7"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Air Leak</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/12">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T21:51:54Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T21:52:03Z</modified>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/8"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Oil Leak</prefLabel>
+	<related xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/9"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/13">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T22:00:32Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/8"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Lube Leak</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/14">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T23:41:16Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/18"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/19"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/20"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/21"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/22"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Broken Part </prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/15">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T23:41:25Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/16"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/17"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/23"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Worn Part </prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/16">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T23:41:41Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/15"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Worn Belt</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/17">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T23:41:57Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/15"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Worn Gear</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/18">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T23:42:08Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/14"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Broken Pin </prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/19">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T23:42:50Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/14"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Broken Latch</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T21:40:26Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/14"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/15"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/6"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Maintenance Problem </prefLabel>
+	<topConceptOf xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/0"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/20">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T23:44:40Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T23:46:47Z</modified>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/14"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Broken Clip</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/21">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T23:45:41Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/14"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Broken Chain </prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/22">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T23:56:34Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/14"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Broken Screw</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/23">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-25T00:01:35Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/15"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Stripped Screw</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/24">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-25T00:35:53Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/3"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Replace Part</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/25">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-25T00:36:09Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/3"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Change Oil</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/3">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T21:40:40Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/24"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/25"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Maintenance Treatment</prefLabel>
+	<topConceptOf xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/0"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/4">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T21:42:33Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Quality Problem</prefLabel>
+	<topConceptOf xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/1"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/5">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T21:42:48Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Quality Treatment </prefLabel>
+	<topConceptOf xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/1"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/6">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T21:45:17Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T21:50:38Z</modified>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Leaking </altLabel>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/7"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/8"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Leak</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/7">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T21:45:27Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/6"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/11"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Gas Leak</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/8">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T21:45:43Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T21:53:41Z</modified>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Fluid Leak</altLabel>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Fluid Leakage</altLabel>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/6"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/10"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/12"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/13"/>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/9"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Liquid Leak</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/9">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-10-24T21:46:06Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/8"/>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Hydraulic Leakage</altLabel>
+	<related xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/12"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/22">
+	<hiddenLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Spindle #4 bleeder screw stripped</hiddenLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/26">
+	<related xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/22"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/23">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-02T13:51:48Z</modified>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Stripped HSK clamp screw St#6</altLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/24">
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/26"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/26">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-02T13:56:37Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/24"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Replace Screw</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/22">
+	<hiddenLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Broken screw in PO slide</hiddenLabel>
+	<related xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/26"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/26">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-02T13:56:51Z</modified>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/22">
+	<hiddenLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">St#5 set screw in tool holder broken</hiddenLabel>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-02T13:59:01Z</modified>
+	<hiddenLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Broken pulley hub screw in brush unit motor</hiddenLabel>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Snapped Screw</altLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/1">
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-02T14:19:19Z</modified>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/0">
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-02T14:19:11Z</modified>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/3">
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-09T16:10:48Z</modified>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/28">
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/33"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/33">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-16T03:17:54Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/28">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/9">
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/28"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2">
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/28"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/28">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-16T03:08:55Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Hydraulic Problem</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/33">
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/28"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Incorrect Pressure</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/28">
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/29"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/29">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-16T03:11:29Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/28"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Excessive Noise </prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/28">
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/30"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/30">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-16T03:11:43Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/28"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Excessive Heat </prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/28">
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-16T03:12:03Z</modified>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/9"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/30">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-16T03:15:18Z</modified>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/29">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-16T03:15:34Z</modified>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/28">
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/31"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/31">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-16T03:15:56Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/28"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Excessive Vibration</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/28">
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/32"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/32">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-16T03:17:44Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/28"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Incorrect Flow</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/9">
+	<hiddenLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Side B hydraulic leak</hiddenLabel>
+	<hiddenLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Hydraulic leak side B</hiddenLabel>
+	<hiddenLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Hyd Leak </hiddenLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Hydraulic Leak</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/32">
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-22T22:45:53Z</modified>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">wrong flow</altLabel>
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/9">
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-28T01:22:10Z</modified>
+	<hiddenLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Hydraulic leak from power pack</hiddenLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/11">
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-29T01:35:14Z</modified>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/10">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/11">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/12">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/13">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/14">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/15">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/16">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/17">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/18">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/19">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-11-29T01:27:02Z</modified>
+	<propagateType xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/20">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/21">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/22">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/23">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/28">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/29">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/30">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/31">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/32">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/33">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/6">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/7">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/8">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/9">
+	<inSubtree xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/2"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/11">
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Air Drain </altLabel>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Air Leakage</altLabel>
+	<hiddenLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Air escape at rear of machine</hiddenLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/4">
+	<appliedType xmlns="http://schema.semantic-web.at/ppt/" rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+	<rdf:type rdf:resource="https://infoneer.poolparty.biz/DiagOntol/Problem"/>
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-01-06T18:29:22Z</modified>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/34">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-12T00:33:09Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/4"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Machining Quality Problem</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/4">
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/34"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/34">
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/35"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/35">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-12T00:33:53Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/34"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Chatter </prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/34">
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/36"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/36">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-12T00:37:52Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/34"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Out-of-Tolerance Part</prefLabel>
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/37"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/37">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-12T00:38:10Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/36"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Oversized Diameter</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/36">
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/38"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/38">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-12T00:38:23Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/36"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Undersized Diameter</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/39">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-12T00:38:41Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/5"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Machining Corrective Action </prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/5">
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/39"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/39">
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/40"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/40">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-12T00:39:22Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/39"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Change Tool</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/39">
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/41"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/41">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-12T00:39:48Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/39"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Change Machining Parameters</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/36">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-12T00:44:36Z</modified>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">out of tolerance</altLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/37">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">too large diameter</altLabel>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-12T01:22:52Z</modified>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">diameter too large</altLabel>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">larger diameter</altLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/38">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">diameters smaller than the specifications</altLabel>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">diameter smaller than specification</altLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/37">
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">diameters larger than the specifications</altLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/34">
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/42"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/42">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-12T00:48:04Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/34"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Heavy material removal</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/34">
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/43"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/43">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-12T00:48:26Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/34"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Poor surface quality</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/34">
+	<narrower xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/44"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/44">
+	<created xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-12T00:49:10Z</created>
+	<creator xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<broader xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/34"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Excessive Tool Wear</prefLabel>
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">worn out tooling</altLabel>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Worn out tool</altLabel>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-12T00:49:30Z</modified>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/40">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-12T00:50:07Z</modified>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">new machining insert</altLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/41">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-12T00:51:36Z</modified>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">feed rate and depth of cut was reduced</altLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/42">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Aggressive material removal</altLabel>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">heavy feed</altLabel>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-12T01:07:22Z</modified>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/38">
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-12T01:22:19Z</modified>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://infoneer.poolparty.biz/ManufacturingDiagnosticsThesaurus/35">
+	<contributor xmlns="http://purl.org/dc/terms/" rdf:resource="https://infoneer.poolparty.biz/user/fameri"/>
+	<altLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Chatter Marks</altLabel>
+	<modified xmlns="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-14T15:10:19Z</modified>
+</rdf:Description>
+
+</rdf:RDF>

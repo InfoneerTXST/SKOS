@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TXST SkosTool</title>
+
+    {% load staticfiles %}
+    <link rel='stylesheet' href="{% static 'skosapp/css/bootstrap.min.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+    <script src="{% static 'skosapp/js/jquery-3.1.1.min.js' %}"></script>
+	<style type="text/css">
+		html,
+		body {height:100%;min-height:100%}
+        body {overflow-y:scroll}
+	</style>
+    <style>
+        a {color:#734143}
+        a:hover {color:#501214;}
+        a:focus {color:#501214;}
+        pre {
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
+        }
+        .asteriskField {display:none;}
+        .fileUpload {
+	        position: relative;
+	        overflow: hidden;
+	        margin: 10px;
+            background-color:#501214;
+            color:#501214;
+        }
+        .btn-seconday {box-shadow:0px 1px 1px rgba(0, 0, 0, 0.3);}
+        .noselect {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+    </style>
+
+</head>
+<body class="body" style="background-color:#f6f6f6">
+    <img src="{% static 'skosapp/img/fade.png' %}" style="z-index:-1;min-height:200px;position:absolute;width:100%;">
+    <div class="container-fluid" style="min-height:95%;">
+		<div class="row" style="padding-bottom:10px;padding-top:10px">
+			  <div style="position:absolute;padding-left:20px;padding-top:2px;z-index:2">
+                  <img src="{% static 'skosapp/img/logo.png' %}" class="img-responsive" style="z-index:-1;max-height:120px;max-width:255px" alt="txstate">
+			  </div>
+			  <div class="col-sm-12" style="padding-left:333px;padding-top:21px">
+                  <div style="font-size:30px">SkosTool&nbsp;-&nbsp;{{ page_title }}</div>
+			  </div>
+		</div>
+        <hr>
+		<div class="row">
+            <div style="position:absolute;padding-left:20px;z-index:1">
+			    <div class="well bs-sidebar" id="sidebar" style="background-color:#fff;width:250px">
+                    <ul class="nav nav-pills nav-stacked">
+				        <li><a href="{% url 'index' %}"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;&nbsp;Home</a></li>
+                        <li><a href="{% url 'upload' %}"><i class="glyphicon glyphicon-screenshot"></i>&nbsp;&nbsp;&nbsp;Corpus Analyzer</a></li>
+                        <li><a href="{% url 'tagging'%}"><i class="glyphicon glyphicon-log-out"></i>&nbsp;&nbsp;&nbsp;Entity Extractor</a></li>
+                        <li><a href="{% url 'builder'%}"><i class="glyphicon glyphicon-wrench"></i>&nbsp;&nbsp;&nbsp;Concept Model Builder</a></li>
+                        <li><a href="{% url 'manager'%}"><i class="glyphicon glyphicon-edit"></i>&nbsp;&nbsp;&nbsp;CM Manager</a></li>
+                        <li><a href="{% url 'scoring'%}"><i class="glyphicon glyphicon-stats"></i>&nbsp;&nbsp;&nbsp;Capability Scorer</a></li>
+				        <li><a href="{% url 'contact' %}"><i class="glyphicon glyphicon-envelope"></i>&nbsp;&nbsp;&nbsp;Contact</a></li>
+			        </ul>
+                </div>
+		    </div>
+            <div class="col-sm-12" style="padding-left:280px">
+			    <div class='container-fluid'>
+                    {% block content %}
+                    {% endblock %}
+			    </div>
+		    </div>
+        </div>
+	</div><br>
+</body>
+<footer style="text-align:center;clear:both;position:relative;z-index:10;height:5px;margin-top:-5px;padding-top:5px;padding-bottom:25px">
+    <a href="http://www.txstate.edu/" target="blank">TXST</a> | <a href="http://infoneer.wp.txstate.edu/" target="blank">Infoneer</a>
+</footer>
+</html>

@@ -1,0 +1,300 @@
+{% extends "skosapp/header.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+    <div style="padding:40px;border:1px solid #ccc">
+        <div class="row">
+            <div class="col-md-10">
+                <h4>Manage models</h4>
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <p>Select concept model:</p>
+                        <select class="form-control" name="model_list" id="model_list" oninput="loadModel()">
+                            <option disabled selected="selected" value="--">--</option>
+                            {% for key, value in model_dict.items %}
+                                <option>{{ key }}</option>
+                            {% endfor %}
+                        </select>
+                        <p style="padding-top:10px"><a id="delete_link" href="{% url 'delete_model' model='--' %}"><i class="glyphicon glyphicon-remove"></i></a>&nbsp;&nbsp;Delete selected concept model</p>
+                        <p><a href="{% url 'reset_models' r="manager" %}"><i class="glyphicon glyphicon-remove"></i></a>&nbsp;&nbsp;Delete all concept models</p>
+                        <br>
+                        <p>Select thesaurus (optional):</p>
+                        <select class="form-control" name="thesaurus_list" id="thesaurus_list" oninput="loadThesaurus()">
+                            <option disabled selected="selected" value="--">--</option>
+                            {% for key, value in thesaurus_dict.items %}
+                                <option>{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                        <br><br>
+                        <p style="border-bottom:1px solid #ccc;width:100%;position:relative;top:0px;bottom:0px"></p>
+                    </div>
+                    <br>
+                    <table style="width:50%">
+                        <tr>
+                            <td style="width:50%;padding-right:10px">
+                                <p>Add labels from thesaurus to model (default weight of 1):</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:40%;padding-right:10px">
+                                <select name="thesaurus_concept_list" id="thesaurus_concept_list" size="8" style="width:100%">
+
+                                </select>
+                            </td>
+                            <td style="width:10%;padding-right:5px">
+                                <button type="button" name="add_button" id="add_button" style="width:100%" onclick="addConcept()">Add</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <table style="width:50%">
+                        <tr>
+                            <td style="width:50%;padding-right:10px">
+                                <p>Delete labels from model:</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:40%;padding-right:10px">
+                                <select name="model_concept_list" id="model_concept_list" size="8" style="width:100%">
+
+                                </select>
+                            </td>
+                            <td style="width:10%;padding-right:5px">
+                                <button type="button" name="delete_button" id="delete_button" style="width:100%" onclick="removeConcept()">Delete</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <br><p></p>
+
+                    <div id="edit" name="edit" style="display:none">
+                        <p style="border-bottom:1px solid #ccc;width:100%;position:relative;top:0px;bottom:0px"></p><br>
+                        <p>Edit weights:</p>
+                        <table id="weight_list" style="border-collapse:separate;border-spacing:0 10px">
+
+                        </table>
+                        <br><p style="padding-top:5px"></p>
+                        <button type="submit" class="btn btn-seconday" name="scoring_submit" onclick="secretParameters()">Save changes</button>
+                    </div>
+
+                    <div id="secret" style="display:none">
+                        <textarea class="form-control" id="new_dict" name="new_dict"></textarea>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="application/javascript" src="{% static 'skosapp/js/jquery.mark.min.js' %}"></script>
+    <script>
+
+    var j_model_list = $('#model_list option');
+    j_model_list.sort(function(a, b) { return a.text.trim().localeCompare(b.text.trim()); });
+    $('#model_list').html(j_model_list);
+
+    var model_list = document.getElementById("model_list");
+    model_list.value = "--";
+    var thesaurus_list = document.getElementById("thesaurus_list");
+    thesaurus_list.value = "--";
+
+    var model_dict = {{ json_model_dict|safe }};
+    var thesaurus_dict = {{ json_thesaurus_dict|safe }};
+    var model_concepts;
+
+    var infoDict = {};
+    var values = [];
+
+    function sortModel() {
+        var sel = $('#model_concept_list');
+        var opts_list = sel.find('option');
+        opts_list.sort(function(a, b) { return $(a).text().trim().toLowerCase() > $(b).text().trim().toLowerCase() ? 1 : -1; });
+        sel.html('').append(opts_list);
+    }
+
+    function loadModel() {
+        $("#model_concept_list").empty();
+
+        model_concepts = model_dict[model_list.options[model_list.selectedIndex].text];
+        for(var c in model_concepts) {
+            var option = document.createElement("option");
+            option.text = c;
+            document.getElementById("model_concept_list").appendChild(option);
+        }
+
+        sortModel();
+
+        $("#weight_list tr").remove();
+
+        for(var concept in model_concepts) {
+            var tableRef = document.getElementById('weight_list');
+            var newRow = tableRef.insertRow(tableRef.rows.length);
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var weight = document.createElement("input");
+            weight.setAttribute('type', 'number');
+            weight.setAttribute('value', "" + model_concepts[concept]);
+            weight.setAttribute('min', "0");
+            weight.setAttribute('max', "99");
+            weight.setAttribute('step', "0.001");
+            weight.innerHTML = ".";
+            cell1.appendChild(weight);
+            var concept_name = document.createElement("span");
+            concept_name.innerHTML = "&nbsp;&nbsp;" + concept;
+            cell2.appendChild(concept_name);
+        }
+
+        sortTable();
+        document.getElementById("edit").style.display = "block";
+        $('#model_concept_list').animate({ scrollTop: 0 }, 0);
+
+        var model = $('#model_list').find(":selected").text().replace(" ", "30389538919375365300003959385937367");
+        document.getElementById("delete_link").href = "{% url 'delete_model' 123 %}".replace('123', model);
+    }
+
+    function loadThesaurus() {
+        $("#thesaurus_concept_list").empty();
+        var current_thesaurus = thesaurus_list.options[thesaurus_list.selectedIndex].text;
+        var id;
+
+        for(var key in thesaurus_dict) {
+            if (thesaurus_dict.hasOwnProperty(key)) {
+                if (thesaurus_dict[key] == current_thesaurus)
+                {
+                    id = key;
+                    break;
+                }
+            }
+        }
+
+        var dir = '../media/thesaurus_data/' + id + '.rj';
+        $.getJSON(dir, function(data) {
+            infoDict = data;
+            values.splice(0, values.length);
+
+            for(var key in infoDict)
+            {
+                if(infoDict.hasOwnProperty(key)) {
+                    try {
+                        values.push(infoDict[key]['http://www.w3.org/2004/02/skos/core#prefLabel'][0]['value']);
+                    }
+                    catch(err) {}
+
+                    try {
+                        for(var keyy in infoDict[key]['http://www.w3.org/2004/02/skos/core#related']) {
+                            values.push(infoDict[infoDict[key]['http://www.w3.org/2004/02/skos/core#related'][keyy]['value']]['http://www.w3.org/2004/02/skos/core#prefLabel'][0]['value']);
+                        }
+                    }
+                    catch(err) {}
+
+                    try {
+                        for(var keyyy in infoDict[key]['http://www.w3.org/2004/02/skos/core#altLabel']) {
+                            values.push(infoDict[key]['http://www.w3.org/2004/02/skos/core#altLabel'][keyyy]['value']);
+                        }
+                    }
+                    catch(err) {}
+                }
+            }
+
+            values = values.filter(function(elem, index, self) {
+                return index == self.indexOf(elem);
+            });
+
+            values.sort(function(a, b){return a.trim().localeCompare(b.trim())});
+            for(var i = 0; i < values.length; i++) {
+                var option = document.createElement("option");
+                option.text = values[i];
+                document.getElementById("thesaurus_concept_list").appendChild(option);
+            }
+        });
+
+        $('#thesaurus_concept_list').animate({ scrollTop: 0 }, 0);
+    }
+
+    function sortTable()
+    {
+        var body = document.getElementById("weight_list");
+        var store = [];
+
+        for(var a = 0; a < body.rows.length; a++)
+        {
+            var row = body.rows[a];
+            var value = row.cells[1].textContent || row.cells[1].innerText;
+            if(!isNaN(value))
+                value = parseFloat(value);
+            store.push([value, row]);
+        }
+
+        store.sort(function(x,y){
+            return x[0].toLowerCase() > y[0].toLowerCase() ? 1 : x[0].toLowerCase() < y[0].toLowerCase() ? -1 : 0;
+        });
+
+        for(var b = 0; b < store.length; b++){
+            body.appendChild(store[b][1]);
+        }
+
+        store = null;
+    }
+
+    function addConcept() {
+        var add = true;
+        var add_concept = $('#thesaurus_concept_list').find(":selected").text();
+        var tableRef = document.getElementById('weight_list');
+        for(var r = 0; r < tableRef.rows.length; r++) {
+            if(tableRef.rows[r].cells[1].innerHTML == "\<span>&nbsp;&nbsp;" + add_concept + "\</span>") {
+                add = false;
+                r = tableRef.rows.length;
+            }
+        }
+
+        if(add) {
+            var newRow = tableRef.insertRow(tableRef.rows.length);
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var weight = document.createElement("input");
+            weight.setAttribute('type', 'number');
+            weight.setAttribute('value', "1");
+            weight.setAttribute('min', "0");
+            weight.setAttribute('max', "99");
+            weight.setAttribute('step', "0.001");
+            weight.innerHTML = ".";
+            cell1.appendChild(weight);
+            var concept_name = document.createElement("span");
+            concept_name.innerHTML = "&nbsp;&nbsp;" + add_concept;
+            cell2.appendChild(concept_name);
+            sortTable();
+
+            var option = document.createElement("option");
+            option.text = add_concept;
+            document.getElementById("model_concept_list").appendChild(option);
+            sortModel();
+        }
+    }
+
+    function removeConcept() {
+        var delete_concept = $('#model_concept_list').find(":selected").text();
+        document.getElementById("model_concept_list").remove(document.getElementById("model_concept_list").selectedIndex);
+
+        var table = document.getElementById("weight_list");
+        for(var r = 0; r < table.rows.length; r++) {
+            if(table.rows[r].cells[1].innerHTML == "\<span>&nbsp;&nbsp;" + delete_concept + "\</span>")
+                table.deleteRow(r);
+        }
+    }
+
+    function secretParameters() {
+        var new_dict = {};
+        var table = document.getElementById("weight_list");
+        for(var a = 0; a < table.rows.length; a++)
+        {
+            var row = table.rows[a];
+            new_dict[row.cells[1].innerText.substr(2, row.cells[1].innerText.length)] = row.cells[0].children[0].value;
+        }
+        document.getElementById("new_dict").innerHTML = JSON.stringify(new_dict);
+    }
+
+    </script>
+
+{% endblock %}

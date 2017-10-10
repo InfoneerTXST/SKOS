@@ -1,0 +1,32 @@
+{% extends 'skosapp/header.html' %}
+
+{% block content %}
+
+    <div style="padding:40px;border:1px solid #ccc">
+        <div class="row">
+            <div class="col-md-10">
+                <h3>Welcome to the Texas State Infoneer SkosTool</h3>
+                <p><i>Please refer to the instructions below when using this site's tools.</i></p>
+                <br>
+                <h4>Corpus Analyzer help</h4>
+                <p>Go to the Corpus Analyzer page. Enter a descriptive title, the project ID, and the corpus ID. The project ID can be obtained from PoolParty after opening a project. The corpus ID can be obtained from PoolParty by clicking on the corpus management tab. To obtain the .rdf file needed, click Projects > Export > RDF Project Export in the PoolParty project. Set the format to RDF/XML and click export. Choose the .rdf you downloaded on the Corpus Analyzer page and click upload.</p>
+                <br>
+                <h4>Entity Extractor help</h4>
+                <p>Go to the Entity Extractor page. If you select 'Paste text', just type or paste the text to analyze in the box. If you select 'URL', type or paste the URL of the site you would like to crawl for text. Note that the header and footer of a site will only be included once. If you select "Upload CSV", upload a .csv file to analyze. Then select a thesaurus to analyze the text with and adjust the options. Finally, click analyze.</p>
+                <br>
+                <h4>Thesaurus Upload help</h4>
+                <p>While on the Entity Extractor or Concept Model Builder page, click the button to upload a new thesaurus. Enter a descriptive title and the project ID. The project ID can be obtained from PoolParty after opening a project. To obtain the .rj file needed, click Projects > Export > RDF Project Export in the same PoolParty project. Set the format to RDF/JSON and click export. Choose the .rj you downloaded on the thesaurus upload page and click upload. You can delete the list of thesauruses at any time on the Entity Extractor or Concept Model Builder page.</p>
+                <br>
+                <h4>Concept Model Builder help</h4>
+                <p>Go to the Concept Model Builder page. Select a thesaurus and enter a title for the concept model. Adjust the weight scheme if needed. Then configure the settings for any number of desired concepts and click submit.</p>
+                <br>
+                <h4>CM Manager help</h4>
+                <p>Go to the CM Manager page. Select a concept model to view its contents, delete labels, and adjust weights. Select a thesaurus to add labels to the selected concept model. Added labels will have a default weight value of 1 (which can be adjusted). Click 'save changes' to submit any changes to the selected concept model.</p>
+                <br>
+                <h4>Capability Scorer help</h4>
+                <p>Submit any number of desired concept models by utilizing the Concept Model Builder. Then go to the Capability Scorer page. If you select 'Manual', just type or paste the text to score in the box. If you select 'URL', type or paste the URL of the site you would like to crawl for text. Then select any number of concept models to score the text with. Finally, click score.</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

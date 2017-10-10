@@ -1,0 +1,21 @@
+{% block content %}
+
+    <div style="padding:40px;margin:40px;border:1px solid #ccc">
+        <h4>Upload RDF</h4>
+        <form action="#" method="post" enctype="multipart/form-data">
+            {% csrf_token %} {{form}}
+            <input type="submit" value="Upload" />
+        </form>
+        <br>
+        {% for r in rdf %}
+            {{forloop.counter}}.<a href="{{ r.rdf_file.url }}">{{ r.rdf_file.name }}</a>
+            ({{r.upload_date}})<hr />
+        {% endfor %}
+    </div>
+
+    <div>
+        <br>
+        <button type="button">Run</button>
+    </div>
+
+{% endblock %}

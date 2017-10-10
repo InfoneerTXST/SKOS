@@ -1,0 +1,114 @@
+{% extends 'skosapp/header.html' %}
+
+{% block content %}
+{% load static %}
+
+    <style>
+
+    .btn-seconday-circle {
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        padding: 2px 0px;
+        font-size: 10px;
+        line-height: 1.428571429;
+        border-radius: 50%;
+    }
+
+    </style>
+
+    <div style="padding:40px;border:1px solid #ccc">
+        <div class="row">
+            <div class="col-md-10">
+                <h4>Preview</h4>
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <i>{{ links_size }} links have been gathered. Please uncheck the links you don't want the crawler to parse and then click submit.</i>
+                    <div id="check_list">
+                        <div id="check_node" name="check_node" style="visibility:hidden">
+                            <input type="checkbox" name="check" id="check" value="true" checked style="vertical-align:bottom;position:relative;top:-3px;margin-left:2px">&nbsp;&nbsp;<span id="sp" name="sp"></span><br>
+                            <span style="visibility:hidden" ></span>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div style="display:none">
+                        <textarea class="form-control" id="links" name="links"></textarea>
+                        <textarea class="form-control" id="links_text" name="links_text"></textarea>
+                        <textarea class="form-control" id="models" name="models"></textarea>
+                    </div>
+
+                    <button type="button" class="btn btn-seconday-circle" onclick="uncheck_all()"><i class="glyphicon glyphicon-minus"></i></button><span style="margin-top:3px;margin-left:3px"> Uncheck all</span><br><br><br>
+                    <button type="submit" class="btn btn-seconday" name="preview_submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="application/javascript" src="{% static 'skosapp/js/jquery.mark.min.js' %}"></script>
+    <script>
+
+    document.getElementById("links").innerHTML = JSON.stringify({{ links|safe }});
+    document.getElementById("links_text").innerHTML = JSON.stringify({{ links_text|safe }});
+    document.getElementById("models").innerHTML = JSON.stringify({{ models|safe }});
+
+    function getSortedObject(object)
+    {
+        var sortedObject = {};
+        var keys = Object.keys(object);
+        keys.sort(function(a, b){return a.trim().localeCompare(b.trim())});
+        for (var i = 0; i < keys.length; i++) {
+            var key = keys[i];
+            var value = object[key];
+            sortedObject[key] = value;
+        }
+        return sortedObject;
+    }
+
+    function uncheck_all()
+    {
+        var elements = document.getElementById("check_list").getElementsByTagName('*');
+        for(var i = 0; i < elements.length; i++) {
+            var element = elements[i];
+            if(element.tagName.toLowerCase() == "input")
+                element.checked = false;
+        }
+    }
+
+    var id_counter = -1;
+    var links = getSortedObject({{ json_links|safe }});
+
+    for (var link in links) {
+        if (links.hasOwnProperty(link)) {
+            id_counter++;
+            var new_check = $("#check_node").clone();
+            new_check.attr("id", "check_node" + id_counter);
+            new_check.attr("name", "check_node" + id_counter);
+
+            var elements = document.getElementById("check_node").getElementsByTagName('*');
+
+            for(var i = 0; i < elements.length; i++) {
+                var element = elements[i];
+                var label = element.id;
+                if(label == "check") {
+                    new_check.find("#" + label).attr("name", link);
+                    new_check.find("#" + label).attr("id", link);
+                }
+                else if (label != "") {
+                    new_check.find("#" + label).attr("name", label + id_counter);
+                    new_check.find("#" + label).attr("id", label + id_counter);
+                }
+            }
+
+            $("#check_list").append(new_check);
+            if(link.length <= 150)
+                document.getElementById("sp" + id_counter).innerHTML = link;
+            else
+                document.getElementById("sp" + id_counter).innerHTML = link.substring(0, 148) + "...";
+            document.getElementById("check_node" + id_counter).style.visibility = "visible";
+        }
+    }
+
+    </script>
+
+{% endblock %}
